@@ -4,6 +4,22 @@ create or replace package apl_bd2.pck_cadastro_alt is
 -- Created : 20/06/2021 00:59:58
 -- Purpose : 
 
+   procedure executa(p_idcadastro in number, --pessoa
+                    p_numero     in varchar2,
+                    p_tipo       in number,
+                    p_nome       in varchar2,
+                    p_email      in varchar2,
+                    p_telefone   in varchar2,
+                    p_erro       out varchar2,
+                    p_msg_erro   out varchar2);
+                    
+   procedure executa(p_idcadastro in number, --imovel
+                    p_numero   in varchar2, 
+                    p_endereco in varchar2,
+                    p_padrao   in varchar2,
+                    p_valor    in number,
+                    p_erro     out varchar2,
+                    p_msg_erro out varchar2);
 end;
 /
 create or replace package body apl_bd2.pck_cadastro_alt is

@@ -27,7 +27,7 @@ create or replace package body apl_bd2.pck_cadastro_exc is
      where cad.numero = p_numero;
      
      p_erro := 'N';
-     p_msg_erro := 'Cadastro removido'.
+     p_msg_erro := 'Cadastro removido';
      
   exception
     when others then

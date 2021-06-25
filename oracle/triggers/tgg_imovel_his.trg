@@ -8,7 +8,7 @@ begin
   
  insert into apl_bd2.imovelhis
  select
-    nvl(:NEW.IDIMOVEL, :OLD.IDIMOVEL)idimovel, 
+    nvl(:NEW.IDIMOVEL, :OLD.IDIMOVEL) idimovel, 
     :NEW.ENDERECO endereco, 
     :NEW.PADRAO padrao, 
     :NEW.VALOR valor, 

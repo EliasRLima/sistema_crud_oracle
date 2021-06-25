@@ -21,7 +21,7 @@ create or replace package apl_bd2.pck_cadastro_inc is
 
 end;
 /
-create or replace package body apl_bd2.pck_cadastro_inc is
+create or replace noneditionable package body apl_bd2.pck_cadastro_inc is
 
   procedure executa(p_numero   in varchar2, --pessoa
                     p_tipo     in number,
@@ -106,7 +106,7 @@ create or replace package body apl_bd2.pck_cadastro_inc is
       padrao, 
       valor )
      values
-     (APL_BD2.seq_cadastro.NEXTVAL,
+     (APL_BD2.seq_cadastro.CURRVAL,
       p_endereco,
       p_padrao,
       p_valor);

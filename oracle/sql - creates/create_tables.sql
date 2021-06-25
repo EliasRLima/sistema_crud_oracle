@@ -5,13 +5,18 @@ create user apl_bd2
   default tablespace SYSTEM
   temporary tablespace TEMP
   profile DEFAULT;
-  
+ 
+alter user APL_BD2 quota unlimited on SYSTEM
+
 create table apl_bd2.cadastro
 (
     idcadastro number primary key,
     tipo number, -- 1 = pessoa fisica, 2 = pessoa juridica, 3 = imovel
     numero varchar2(14) --cpf / cnpj / insmob   
 );
+alter table APL_BD2.CADASTRO
+  add constraint k_num unique (NUMERO);
+alter table APL_BD2.CADASTRO modify tipo not null;
 
 create table apl_bd2.pessoa
 (
@@ -40,10 +45,8 @@ create table apl_bd2.imovelhis as
         sysdate datalt,
         user usuario
  from apl_bd2.imovel i;
- 
-alter table APL_BD2.IMOVELHIS
-  add constraint FK_IMOV_HIS foreign key (IDIMOVEL)
-  references APL_BD2.IMOVEL (IDIMOVEL);
+  
+alter table APL_BD2.IMOVELHIS modify idimovel not null;
   
 create sequence APL_BD2.seq_cadastro
 minvalue 1
